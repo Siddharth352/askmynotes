@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: asknotes
+      POSTGRES_USER: asknotes
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - asknotes-postgres:/var/lib/postgresql/data
+
+volumes:
+  asknotes-postgres:
